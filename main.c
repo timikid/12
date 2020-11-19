@@ -5,26 +5,25 @@
 
 int main(int argc, char *argv[]) {
 
+   FILE *fp;
+   char c;
+   int i;
+   
+   fp = fopen("sample.txt", "r");
+   if(fp == NULL)
+   {
+   	return -1;
+   }
+   
+   while( (c=fgetc(fp)) != EOF ){    //읽어오면서 조건검토  
+   	 printf("%c",c); 
+   	}
     
-    FILE *fp;
-    char str[100];
-    int i;
-	fp = fopen("sample.txt","w");
     
-	if(fp == NULL)
-    {
-    	return -1;
-    	
-	}
+    //while ( fgets(str, 100, fp) !=NULL)
+    //printf("%s",c)
     
-    for(i=0; i<3; i++){
-	
-	printf("input a word : " );
-	scanf("%s", str);
-	
-	fprintf(fp, "%s\n", str);
-    } 
-	
-	fclose(fp);
+    fclose(fp);
+    
 	return 0;
 }
