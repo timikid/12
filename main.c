@@ -4,14 +4,27 @@
 /* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int main(int argc, char *argv[]) {
-	char src[] = "The worst things to eat before you sleep";
-	char dst[100];
+
+    
+    FILE *fp;
+    char str[100];
+    int i;
+	fp = fopen("sample.txt","w");
+    
+	if(fp == NULL)
+    {
+    	return -1;
+    	
+	}
+    
+    for(i=0; i<3; i++){
 	
-	char str[30] = "Happy C programming";
+	printf("input a word : " );
+	scanf("%s", str);
 	
-	strcpy(dst, src);
-	printf("copied string : %s\n", dst);
+	fprintf(fp, "%s\n", str);
+    } 
 	
-	printf("length of \%s\: %i\n", str, strlen(str) );
+	fclose(fp);
 	return 0;
 }
